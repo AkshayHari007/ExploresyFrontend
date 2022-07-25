@@ -1,0 +1,65 @@
+.logo {
+  text-align: center;
+  padding: 2.6rem 1rem;
+
+  img {
+    width: 125px;
+    // height: 20px;
+  }
+}
+
+mat-icon {
+  vertical-align: center;
+  margin-right: 1rem;
+}
+
+mat-divider {
+  border-top-width: 2px;
+  border-color: white;
+}
+
+.mat-list-item {
+  // color: #94a3b8 !important;
+  color: #23536a !important;
+  font-size: 0.8rem;
+  font-weight: 500;
+  height: 44px !important;
+  margin-bottom: 4px;
+
+  ::ng-deep {
+    .mat-list-item-content {
+      border-radius: 5px;
+      margin: 0 8px;
+
+      &:hover {
+        // background: #2c3344 !important;
+        background: #3943586c !important;
+
+      }
+    }
+  }
+}
+
+.list-item-active {
+  color: #f2f5f7 !important;
+
+  ::ng-deep {
+    .mat-list-item-content {
+      border-radius: 5px;
+      margin: 0 8px;
+      background: #2c3344 !important;
+
+      &:hover {
+        background: #2c3344 !important;
+      }
+    }
+  }
+}
+
+.mat-subheader {
+  color: #3e51fb;
+  font-size: 1.25rem;
+  font-family: monospace;
+  font-weight: 100;
+  letter-spacing: 2px;
+}

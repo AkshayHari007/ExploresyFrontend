@@ -1,0 +1,71 @@
+// .page{
+//     color: white;
+//     padding: 0 1rem;
+//     background: #f1f5f9;
+//     &__box{
+//         min-height: 120px;
+//         background: #1e293b;
+//         margin: 0 -1rem;
+//         font-size: 36px;
+//     }
+//     &__content{
+//         min-height: calc(100vh - 178px);
+//         border-radius: 10px;
+//         margin-top: -2rem;
+//         background: white;
+//         color: black;
+//         // font-size: 2rem;
+//         // overflow-y: auto;
+
+//         &-data{
+//             top: 50%;
+//             left: 50%;
+//             transform: translate(-50%, -50%);
+//         }
+//     }
+// }
+
+// .tabClass {
+//   position: relative; //responsive
+//   // top: 6rem;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   width: 500px;
+// }
+
+.bgimg {
+  background-image: url(../../assets/images/bg1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+.content {
+  position: relative; //responsive
+  top: 4rem;
+  //   display: flex;
+  //   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 560px;
+  padding-bottom: 5px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.225),
+    0 6px 20px 0 rgba(0, 0, 0, 0.804);
+}
+
+// .mat-tab-label{
+//   font-weight: bolder;
+//   font-size: larger;
+// }
+
+::ng-deep .mat-tab-label .mat-tab-label-content {
+  font-weight: bolder;
+  font-size: larger;
+  color: rgb(75, 75, 152);
+}

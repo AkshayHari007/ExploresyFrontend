@@ -1,0 +1,19 @@
+    <app-navbar (toggleSideBar)="sideBarToggler()"></app-navbar>
+
+
+    <mat-drawer-container>
+
+      <mat-drawer mode="side" [opened]="sideBarOpen">
+
+        <app-sidenav></app-sidenav>
+
+      </mat-drawer>
+
+      <mat-drawer-content>
+
+
+        <router-outlet></router-outlet>
+
+      </mat-drawer-content>
+
+    </mat-drawer-container>

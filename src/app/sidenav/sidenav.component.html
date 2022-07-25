@@ -1,0 +1,43 @@
+<mat-nav-list>
+
+  <div class="logo py-2">
+    <!-- <img src="../../assets/images/exploresy logo 1.png" alt="logo"> -->
+    <h2 mat-subheader class="mt-2">Applications</h2>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <!-- <h2 mat-subheader class="mt-2">Applications</h2> -->
+
+  <a mat-list-item routerLink="/home" routerLinkActive="list-item-active">
+    <mat-icon>home</mat-icon> Home
+  </a>
+
+  <a mat-list-item routerLink="/register" routerLinkActive="list-item-active"
+    *ngIf="!user.editorLogin()&&!user.adminLogin()&&!user.authorLogin()">
+    <mat-icon>login</mat-icon> Register
+  </a>
+
+  <a mat-list-item routerLink="/admins" routerLinkActive="list-item-active"
+    *ngIf="user.adminLogin()">
+    <mat-icon>verified_user</mat-icon> Admins
+  </a>
+
+  <a mat-list-item routerLink="/editors" routerLinkActive="list-item-active"
+    *ngIf="user.editorLogin()||user.adminLogin()">
+    <mat-icon>how_to_reg</mat-icon> Editors
+  </a>
+
+  <a mat-list-item routerLink="/authors" routerLinkActive="list-item-active"
+    *ngIf="user.editorLogin()||user.adminLogin()">
+    <mat-icon>supervised_user_circle</mat-icon> Authors
+  </a>
+
+
+
+  <!-- <a mat-list-item routerLink="#" routerLinkActive="list-item-active">
+    <mat-icon>edit</mat-icon> Links
+  </a> -->
+
+
+</mat-nav-list>
