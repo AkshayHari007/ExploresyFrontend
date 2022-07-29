@@ -17,7 +17,7 @@ export class EditorAuthGuard implements CanActivate {
 
     } else {
 
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
       return false;
 
     }

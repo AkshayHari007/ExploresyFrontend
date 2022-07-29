@@ -33,7 +33,7 @@ import { EditorsComponent } from './editors/editors.component';
     UserComponent,
     HomeComponent,
     AdminComponent,
-    EditorsComponent
+    EditorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,15 +41,16 @@ import { EditorsComponent } from './editors/editors.component';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [UserServiceService,
-  {
-    provide:HTTP_INTERCEPTORS,
-    useClass:TokenInterceptorService,
-    multi:true
-  }
+  providers: [
+    UserServiceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

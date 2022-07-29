@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
           console.log(res.message);
           localStorage.setItem('roleId', res.data.UserRole);
           localStorage.setItem('token', res.token);
-          this._router.navigate(['home']);
+          this._router.navigate(['']);
 
         }
         else {

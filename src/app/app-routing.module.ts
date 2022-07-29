@@ -12,18 +12,21 @@ import { SignupComponent } from './signup/signup.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: '', component: HomeComponent },
+  // { path: 'login', component: LoginComponent },
+  // { path: 'signup', component: SignupComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'admins', canActivate: [AdminAuthGuard], component: AdminComponent },
-  { path: 'editors', canActivate: [EditorAuthGuard], component: EditorsComponent },
-  { path: 'authors', canActivate: [EditorAuthGuard], component: UserComponent }
-
+  {
+    path: 'editors',
+    canActivate: [EditorAuthGuard],
+    component: EditorsComponent,
+  },
+  { path: 'authors', canActivate: [EditorAuthGuard], component: UserComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
