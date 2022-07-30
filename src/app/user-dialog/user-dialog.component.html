@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 mat-dialog-title style="text-align: center">
+    Edit the role id of The User
+  </h1>
+  <div mat-dialog-content>
+    <form action="">
+      <mat-form-field appearance="outline">
+        <mat-label>Role Id</mat-label>
+        <mat-select>
+          <mat-option value="1" *ngIf="user.adminLogin()">
+            Super Admin
+          </mat-option>
+          <mat-option value="2">Editor</mat-option>
+          <mat-option value="3">User</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions [align]="'center'">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" (click)="editUser()">Edit</button>
+  </div>
+</div>

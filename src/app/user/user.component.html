@@ -31,10 +31,7 @@
             <dd class="col-sm-10"><b>: </b>{{ u.Gender }}</dd>
 
             <dt class="col-sm-2">Date of Birth</dt>
-            <dd class="col-sm-10"><b>: </b>{{ u.Dob }}</dd>
-
-            <!-- <dt class="col-sm-2">Book Description</dt>
-      <dd class="col-sm-10" style="text-align: justify;"><b>: </b>qwertyui</dd> -->
+            <dd class="col-sm-10"><b>: </b>{{ u.Dob |date}}</dd>
           </dl>
         </div>
 
@@ -43,6 +40,7 @@
             mat-fab
             aria-label="Example icon button with a bookmark icon"
             style="background: rgba(0, 128, 0, 0.649)"
+            (click)="openEdit()"
           >
             <mat-icon>edit</mat-icon>
           </button>

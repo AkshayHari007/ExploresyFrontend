@@ -18,6 +18,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -38,13 +39,12 @@ const MaterialComponents = [
   MatGridListModule,
   MatTableModule,
   MatPaginatorModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatDialogModule,
 ];
 
 @NgModule({
-
   imports: [MaterialComponents],
-  exports: [MaterialComponents]
-
+  exports: [MaterialComponents],
 })
-export class MaterialModule { }
+export class MaterialModule {}

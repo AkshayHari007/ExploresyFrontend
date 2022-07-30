@@ -21,6 +21,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditorsComponent } from './editors/editors.component';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { EditorsComponent } from './editors/editors.component';
     HomeComponent,
     AdminComponent,
     EditorsComponent,
+    UserDialogComponent,
   ],
+  entryComponents: [UserDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
