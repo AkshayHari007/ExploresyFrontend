@@ -1,0 +1,16 @@
+<div class="container">
+  <h1
+    mat-dialog-title
+    style="text-align: center; font-family: 'Abril Fatface', serif"
+  >
+    Are you sure you want to Remove {{ UserData.FirstName }} {{ UserData.LastName }} ?
+  </h1>
+  <div mat-dialog-content>
+    
+  </div>
+  <div mat-dialog-actions [align]="'center'">
+    <button mat-raised-button color="warn" (click)="deleteUser()">Yes</button>
+    <button mat-raised-button color="primary" mat-dialog-close style="background-color: rgba(0, 215, 0, 0.677);">No</button>
+  </div>
+</div>
+

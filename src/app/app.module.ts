@@ -22,6 +22,10 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditorsComponent } from './editors/editors.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { UserdeleteDialogComponent } from './userdelete-dialog/userdelete-dialog.component';
+import { Toast, ToastrModule } from 'ngx-toastr';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryDialogComponent } from './category-dialog/category-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +40,15 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
     AdminComponent,
     EditorsComponent,
     UserDialogComponent,
+    UserdeleteDialogComponent,
+    CategoriesComponent,
+    CategoryDialogComponent,
   ],
-  entryComponents: [UserDialogComponent],
+  entryComponents: [
+    UserDialogComponent,
+    UserdeleteDialogComponent,
+    CategoryDialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,6 +56,7 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     UserServiceService,

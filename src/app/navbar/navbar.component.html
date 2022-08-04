@@ -1,11 +1,14 @@
-
 <mat-toolbar class="mat-elevation-z8">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
-    (click)="toogleSidebar()">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="toogleSidebar()"
+  >
     <mat-icon>menu</mat-icon>
   </button>
   <div class="logo py-2">
-    <img src="../../assets/images/exploresy logo 1.png" alt="logo">
+    <img src="../../assets/images/exploresy logo 1.png" alt="logo" />
   </div>
   <span class="example-spacer"></span>
   <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
@@ -15,10 +18,12 @@
     <mat-icon>share</mat-icon>
   </button> -->
 
-
-
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
-    *ngIf="user.authorLogin()||user.editorLogin()||user.adminLogin()">
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+    *ngIf="user.authorLogin() || user.editorLogin() || user.adminLogin()"
+  >
     <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
@@ -27,75 +32,12 @@
       <span>User</span>
     </button>
     <mat-divider></mat-divider>
-    <button mat-menu-item (click)="logoutUser();">
+    <button mat-menu-item (click)="logoutUser()">
       <mat-icon>exit_to_app</mat-icon>
       <span>Log Out</span>
     </button>
   </mat-menu>
-
 </mat-toolbar>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- <mat-toolbar style="height:5px;">
   <mat-toolbar-row class="justify-content-between">
@@ -124,4 +66,3 @@
     </div>
   </mat-toolbar-row>
 </mat-toolbar> -->
-

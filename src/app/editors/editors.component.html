@@ -1,5 +1,7 @@
 <div class="container" style="margin-top: 15px">
-  <h1><b>Editors List</b></h1>
+  <h1 style="font-family: 'Abril Fatface', serif; font-size: 30px">
+    <b>Editors List</b>
+  </h1>
 
   <mat-accordion class="example-headers-align" multi>
     <mat-expansion-panel *ngFor="let e of editors" style="margin-bottom: 5px">
@@ -43,6 +45,7 @@
             mat-fab
             aria-label="Example icon button with a bookmark icon"
             style="background: rgba(0, 128, 0, 0.649)"
+            (click)="openEdit(e)"
           >
             <mat-icon>edit</mat-icon>
           </button>
@@ -54,6 +57,7 @@
             mat-fab
             color="warn"
             aria-label="Example icon button with a delete icon"
+            (click)="openDelete(e)"
           >
             <mat-icon>delete</mat-icon>
           </button>

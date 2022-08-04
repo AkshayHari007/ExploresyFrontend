@@ -17,6 +17,19 @@
     <mat-icon>home</mat-icon> Home
   </a>
 
+  <a mat-list-item routerLink="/categories" routerLinkActive="list-item-active">
+    <mat-icon>view_module</mat-icon> Categories
+  </a>
+
+  <a
+    mat-list-item
+    routerLink="#"
+    routerLinkActive="list-item-active"
+    *ngIf="user.editorLogin() || user.adminLogin() || user.authorLogin()"
+  >
+    <mat-icon>art_track</mat-icon> My Posts
+  </a>
+
   <a
     mat-list-item
     routerLink="/register"

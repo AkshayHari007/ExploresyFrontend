@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserServiceService } from '../services/user-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -32,7 +34,10 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userSevice: UserServiceService,
-    private _router: Router
+    private _router: Router,
+    private route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
+    private toaster: ToastrService
   ) {}
 
   signupForm = this.fb.group(
@@ -81,15 +86,35 @@ export class SignupComponent implements OnInit {
       this.signupSubmitted = true;
       this.userSevice.userSignup(this.user).subscribe((res) => {
         console.log(res);
+        if (res.success) {
+          this._snackBar.open(
+            'Your Signup is Successful! Please LogIn to Exploresy 😊',
+            'ok',
+            {
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+              duration: 2000,
+            }
+          );
+
+          // alert('Your Signup is Successful! Please LogIn to Exploresy 😊');
+          this.signupForm.reset();
+          // this._router.navigate(['register']).then(() => {
+          //   window.location.reload();
+          // });
+          // ! to reload without loading
+          this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this._router.onSameUrlNavigation = 'reload';
+          this._router.navigate(['./'], {
+            relativeTo: this.route,
+            queryParamsHandling: 'merge',
+          });
+        } else {
+          this.toaster.error(res.message, 'Error!', { timeOut: 4000 });
+        }
       });
     }
 
     // console.log({ values });
-
-    alert('Your Signup is Successful! Please LogIn to Exploresy 😊');
-    this.signupForm.reset();
-    this._router.navigate(['register']).then(() => {
-      window.location.reload();
-    });
   }
 }

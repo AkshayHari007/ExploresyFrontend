@@ -1,0 +1,52 @@
+.example-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+img {
+  width: 100%;
+  height: 15vw;
+  min-height: fit-content;
+  min-width: fit-content;
+  object-fit: cover;
+  margin-bottom: 8px;
+  border-radius: 10px;
+}
+
+.cat-icon {
+  background-color: white;
+  padding: 12px;
+  border: solid 1px rgb(153, 148, 148);
+  border-radius: 25px;
+  margin: 10px auto;
+  width: 25rem;
+  // width: 30%;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transition: 0.4s;
+}
+.cat-icon:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translate(0, -8px);
+}
+
+a {
+  text-decoration: none;
+  font-size: 2.1vw;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: black;
+  transition: 0.4s;
+}
+a:hover {
+  color: blue;
+}
+
+.category {
+  padding: 80px;
+}
