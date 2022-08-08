@@ -1,59 +1,35 @@
 <section class="category min-vh-100">
   <div class="container-lg">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gy-4">
-      <div class="col cat-icon">
+      <div class="col cat-icon" *ngFor="let category of categories">
         <a class="card-text" routerLink="#">
-          <img src="../../assets/images/bg3.jpg" />
+          <img src="../../assets/images/{{ category.Image }}" />
           <br />
-          Category 1
+          {{ category.Title }}
         </a>
-      </div>
-      <div class="col cat-icon">
-        <a routerLink="#">
-          <img src="../../assets/images/bg2.jpg" />
-          <br />
-          Category 1
-        </a>
-      </div>
-      <div class="col cat-icon">
-        <a routerLink="#">
-          <img src="../../assets/images/bg1.jpg" />
-          <br />
-          Category 1
-        </a>
-      </div>
-      <div class="col cat-icon">
-        <a routerLink="#">
-          <img src="../../assets/images/bg3.jpg" />
-          <br />
-          Category 1
-        </a>
-      </div>
-      <div class="col cat-icon">
-        <a routerLink="#">
-          <img src="../../assets/images/bg3.jpg" />
-          <br />
-          Category 1
-        </a>
-      </div>
-      <div class="col cat-icon">
-        <a routerLink="#">
-          <img src="../../assets/images/bg3.jpg" />
-          <br />
-          Category 1
-        </a>
-      </div>
-      <div class="col cat-icon">
-        <a routerLink="#">
-          <img src="../../assets/images/bg3.jpg" />
-          <br />
-          Category 1
-        </a>
+        <br />
+        <br />
+
+        <div
+          mat-dialog-actions
+          [align]="'center'"
+          class="justify-content-center"
+          *ngIf="user.editorLogin() || user.adminLogin()"
+        >
+          <button
+            mat-raised-button
+            color="primary"
+            style="width: 20%; margin-right: 20px"
+          >
+            Edit
+          </button>
+          <button mat-raised-button color="warn">Delete</button>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<div>
+<div *ngIf="user.editorLogin() || user.adminLogin()">
   <button
     class="example-button-container"
     mat-fab

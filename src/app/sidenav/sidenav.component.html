@@ -18,12 +18,12 @@
   </a>
 
   <a mat-list-item routerLink="/categories" routerLinkActive="list-item-active">
-    <mat-icon>view_module</mat-icon> Categories
+    <mat-icon>category</mat-icon> Categories
   </a>
 
   <a
     mat-list-item
-    routerLink="#"
+    routerLink="/myposts"
     routerLinkActive="list-item-active"
     *ngIf="user.editorLogin() || user.adminLogin() || user.authorLogin()"
   >

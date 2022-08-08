@@ -19,12 +19,12 @@
   </button> -->
 
   <button
-    mat-icon-button
+    mat-stroked-button
     [matMenuTriggerFor]="menu"
     aria-label="Example icon-button with a menu"
     *ngIf="user.authorLogin() || user.editorLogin() || user.adminLogin()"
   >
-    <mat-icon>account_circle</mat-icon>
+    {{ FirstName }} {{ LastName }} <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>

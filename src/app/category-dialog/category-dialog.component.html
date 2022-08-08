@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container justify-content-center">
   <h1
     mat-dialog-title
     style="text-align: center; font-family: 'Abril Fatface', serif"
@@ -6,17 +6,50 @@
     Add Category
   </h1>
   <div mat-dialog-content>
-    <form [formGroup]="roleEditform">
+    <form [formGroup]="categoryform">
       <mat-form-field appearance="outline">
-        <mat-label>Role Id</mat-label>
-        <mat-select formControlName="role">
-          <mat-option [value]="1" >
-            Super Admin
-          </mat-option>
-          <mat-option [value]="2">Editor</mat-option>
-          <mat-option [value]="3">User</mat-option>
-        </mat-select>
+        <mat-label>Category Name</mat-label>
+        <input
+          matInput
+          placeholder="Category Name"
+          formControlName="category"
+          [(ngModel)]="category.Title"
+        />
+        <mat-icon matSuffix>category</mat-icon>
+
+        <mat-error
+          *ngIf="AllControlsForCategory?.category?.errors?.['required']&&categorysub||AllControlsForCategory['category']?.touched"
+        >
+          Category Name required
+        </mat-error>
       </mat-form-field>
+
+      <div class="mb-3">
+        <input
+          type="file"
+          class="form-control form-control-lg"
+          aria-label="file example"
+          formControlName="categoryimage"
+          accept="image/*"
+          [class.is-invalid]="
+            AllControlsForCategory['category'].touched  && AllControlsForCategory.categoryimage.errors?.['required']"
+          [class.is-valid]="
+          !AllControlsForCategory.categoryimage.errors?.['required']"
+          (change)="selectFile($event)"
+        />
+        <mat-error
+          style="font-size: 10px; margin-left: 11px; margin-top: 3px"
+          *ngIf="AllControlsForCategory['category']?.touched && AllControlsForCategory?.categoryimage?.errors?.['required']"
+        >
+          Category Image required
+        </mat-error>
+      </div>
+
+      <img
+        [src]="url"
+        *ngIf="!AllControlsForCategory?.categoryimage?.errors?.['required']"
+        alt="Browse a Category Image"
+      />
     </form>
   </div>
   <div mat-dialog-actions [align]="'center'">
@@ -26,9 +59,8 @@
       (click)="addCategory()"
       style="width: 20%"
     >
-      Edit
+      Add
     </button>
     <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
   </div>
 </div>
-

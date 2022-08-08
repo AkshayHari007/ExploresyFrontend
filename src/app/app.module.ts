@@ -11,7 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -23,9 +23,12 @@ import { AdminComponent } from './admin/admin.component';
 import { EditorsComponent } from './editors/editors.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { UserdeleteDialogComponent } from './userdelete-dialog/userdelete-dialog.component';
-import { Toast, ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDialogComponent } from './category-dialog/category-dialog.component';
+import { ContentServiceService } from './services/content-service.service';
+import { MyPostsComponent } from './my-posts/my-posts.component';
+import { MyPostsDialogComponent } from './my-posts-dialog/my-posts-dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,23 +46,28 @@ import { CategoryDialogComponent } from './category-dialog/category-dialog.compo
     UserdeleteDialogComponent,
     CategoriesComponent,
     CategoryDialogComponent,
+    MyPostsComponent,
+    MyPostsDialogComponent,
   ],
   entryComponents: [
     UserDialogComponent,
     UserdeleteDialogComponent,
     CategoryDialogComponent,
+    MyPostsDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
   ],
   providers: [
     UserServiceService,
+    ContentServiceService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

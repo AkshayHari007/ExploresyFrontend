@@ -61,6 +61,9 @@ export class LoginComponent implements OnInit {
             { timeOut: 2000 }
           );
           localStorage.setItem('roleId', res.data.UserRole);
+          localStorage.setItem('FirstName', res.data.FirstName);
+          localStorage.setItem('LastName', res.data.LastName);
+          localStorage.setItem('Email', res.data.Email);
           localStorage.setItem('token', res.token);
           this._router.navigate(['']);
         } else {
