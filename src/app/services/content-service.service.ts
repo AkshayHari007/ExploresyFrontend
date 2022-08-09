@@ -18,4 +18,23 @@ export class ContentServiceService {
   getCategories() {
     return this.http.get(`${baseurl}category/fetch`);
   }
+
+  getCategorieslist() {
+    return this.http.get(`${baseurl}category/fetchlist`);
+  }
+
+  addPost(data: any) {
+    return this.http.post<any>(`${baseurl}post/addpost`, data);
+    // .subscribe(data => {
+    //   console.log(data);
+    // })
+  }
+
+  getPost() {
+    return this.http.get(`${baseurl}post/fetch`);
+  }
+
+  getmyPost(data: any) {
+    return this.http.post<any>(`${baseurl}post/fetchmypost`,data);
+  }
 }

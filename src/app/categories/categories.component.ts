@@ -18,7 +18,11 @@ export class CategoriesComponent implements OnInit {
     },
   ];
 
-  constructor(public dialog: MatDialog, private content: ContentServiceService, public user:UserServiceService) {}
+  constructor(
+    public dialog: MatDialog,
+    private content: ContentServiceService,
+    public user: UserServiceService
+  ) {}
 
   ngOnInit(): void {
     this.content.getCategories().subscribe((res: any) => {
