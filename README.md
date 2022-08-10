@@ -9,11 +9,15 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Credentials 
 
 Super Admin Credentials:
+
 	Email: superadmin@gmail.com
+  
 	Password: superadmin
   
 Admin Credentials:
+
 	Email: adminone@gmail.com
+  
 	Password: adminone
 
 
