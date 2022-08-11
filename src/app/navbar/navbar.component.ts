@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceService } from '../services/user-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UserProfileDialogComponent } from '../user-profile-dialog/user-profile-dialog.component';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,11 @@ import { UserServiceService } from '../services/user-service.service';
 export class NavbarComponent implements OnInit {
   @Output() toggleSideBar: EventEmitter<any> = new EventEmitter();
   logo = true;
-  constructor(public user: UserServiceService, private router: Router) {}
+  constructor(
+    public user: UserServiceService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   FirstName = localStorage.getItem('FirstName');
   LastName = localStorage.getItem('LastName');
@@ -20,6 +26,12 @@ export class NavbarComponent implements OnInit {
   toogleSidebar() {
     this.toggleSideBar.emit();
     this.logo = !this.logo;
+  }
+
+  editProfile() {
+    this.dialog.open(UserProfileDialogComponent, {
+      width: '30%',
+    });
   }
 
   logoutUser() {

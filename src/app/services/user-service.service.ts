@@ -17,6 +17,17 @@ export class UserServiceService {
     // })
   }
 
+  getProfile(data: any) {
+    return this.http.post<any>(`${baseurl}users/fetch`, data);
+  }
+
+  editProfile(data: any) {
+    return this.http.post<any>(`${baseurl}users/editprofile`, data);
+    // .subscribe(data => {
+    //   console.log(data);
+    // })
+  }
+
   userRoleid(data: any) {
     return this.http.post<any>(`${baseurl}users/roleid`, data);
     // .subscribe(data => {
@@ -25,7 +36,7 @@ export class UserServiceService {
   }
 
   userDelete(id: any) {
-    return this.http.delete(`${baseurl}users/delete/`+ id);
+    return this.http.delete(`${baseurl}users/delete/` + id);
     // .subscribe(data => {
     //   console.log(data);
     // })

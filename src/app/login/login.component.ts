@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserServiceService } from '../services/user-service.service';
 
@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private userSevice: UserServiceService,
     private _router: Router,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private route: ActivatedRoute
   ) {}
 
   loginForm = this.fb.group({
@@ -65,6 +66,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('LastName', res.data.LastName);
           localStorage.setItem('Email', res.data.Email);
           localStorage.setItem('token', res.token);
+
           this._router.navigate(['']);
         } else {
           // alert(res.message);

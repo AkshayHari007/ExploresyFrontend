@@ -96,11 +96,11 @@
         />
         <mat-icon matSuffix>smartphone</mat-icon>
         <mat-error
-          *ngIf="AllControlsForSignup?.['mobile']?.errors?.['pattern']&&signupSubmitted"
+          *ngIf="AllControlsForSignup?.['mobile']?.errors?.['pattern']&&signupSubmitted||AllControlsForSignup['mobile']?.touched"
           >Invalid Mobile Number
         </mat-error>
         <mat-error
-          *ngIf="AllControlsForSignup?.['mobile']?.errors?.['required']&&signupSubmitted||AllControlsForSignup['mobile']?.touched"
+          *ngIf="AllControlsForSignup?.['mobile']?.errors?.['required']&&signupSubmitted"
           >Mobile Number required
         </mat-error>
       </mat-form-field>
@@ -117,11 +117,11 @@
         />
         <mat-icon matSuffix>email</mat-icon>
         <mat-error
-          *ngIf="AllControlsForSignup?.['email']?.errors?.['pattern']&&signupSubmitted"
+          *ngIf="AllControlsForSignup?.['email']?.errors?.['pattern']&&signupSubmitted||AllControlsForSignup['email']?.touched"
           >Invalid Email
         </mat-error>
         <mat-error
-          *ngIf="AllControlsForSignup?.['email']?.errors?.['required']&&signupSubmitted||AllControlsForSignup['email']?.touched"
+          *ngIf="AllControlsForSignup?.['email']?.errors?.['required']&&signupSubmitted"
         >
           Email required
         </mat-error>
@@ -151,11 +151,11 @@
         </button>
 
         <mat-error
-          *ngIf="AllControlsForSignup?.['password']?.errors?.['minlength']&&signupSubmitted"
+          *ngIf="AllControlsForSignup?.['password']?.errors?.['minlength']&&signupSubmitted||AllControlsForSignup['password']?.touched"
           >Password length should be minimum 8</mat-error
         >
         <mat-error
-          *ngIf="AllControlsForSignup?.['password']?.errors?.['required']&&signupSubmitted||AllControlsForSignup['password']?.touched"
+          *ngIf="AllControlsForSignup?.['password']?.errors?.['required']&&signupSubmitted"
         >
           Password required
         </mat-error>

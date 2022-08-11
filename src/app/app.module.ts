@@ -32,6 +32,9 @@ import { MyPostsDialogComponent } from './my-posts-dialog/my-posts-dialog.compon
 import { CategoryContentComponent } from './category-content/category-content.component';
 import { MyPostsEditDialogComponent } from './my-posts-edit-dialog/my-posts-edit-dialog.component';
 import { MyPostsDeleteDialogComponent } from './my-posts-delete-dialog/my-posts-delete-dialog.component';
+import { CategoryDeleteDialogComponent } from './category-delete-dialog/category-delete-dialog.component';
+import { CategoryEditDialogComponent } from './category-edit-dialog/category-edit-dialog.component';
+import { UserProfileDialogComponent } from './user-profile-dialog/user-profile-dialog.component';
 
 @NgModule({
   declarations: [
@@ -54,14 +57,20 @@ import { MyPostsDeleteDialogComponent } from './my-posts-delete-dialog/my-posts-
     CategoryContentComponent,
     MyPostsEditDialogComponent,
     MyPostsDeleteDialogComponent,
+    CategoryDeleteDialogComponent,
+    CategoryEditDialogComponent,
+    UserProfileDialogComponent,
   ],
   entryComponents: [
     UserDialogComponent,
     UserdeleteDialogComponent,
     CategoryDialogComponent,
+    CategoryEditDialogComponent,
+    CategoryDeleteDialogComponent,
     MyPostsDialogComponent,
     MyPostsEditDialogComponent,
     MyPostsDeleteDialogComponent,
+    UserProfileDialogComponent,
   ],
   imports: [
     BrowserModule,

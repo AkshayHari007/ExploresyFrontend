@@ -31,6 +31,13 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if (!localStorage.getItem('foo')) {
+      localStorage.setItem('foo', 'no reload');
+      location.reload();
+    } else {
+      localStorage.removeItem('foo');
+    }
+
     this.post.getPost().subscribe((res: any) => {
       console.log(res);
       if (res.success) {

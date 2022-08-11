@@ -8,23 +8,17 @@ import { ToastrService } from 'ngx-toastr';
 import { ContentServiceService } from '../services/content-service.service';
 
 @Component({
-  selector: 'app-my-posts-edit-dialog',
-  templateUrl: './my-posts-edit-dialog.component.html',
-  styleUrls: ['./my-posts-edit-dialog.component.scss'],
+  selector: 'app-category-edit-dialog',
+  templateUrl: './category-edit-dialog.component.html',
+  styleUrls: ['./category-edit-dialog.component.scss'],
 })
-export class MyPostsEditDialogComponent implements OnInit {
+export class CategoryEditDialogComponent implements OnInit {
   url = '';
-  categories = [{ Title: '' }];
-  postsub = false;
-  // post = {
-  //   FirstName: JSON.parse(JSON.stringify(localStorage.getItem('FirstName'))),
-  //   LastName: JSON.parse(JSON.stringify(localStorage.getItem('LastName'))),
-  //   Email: JSON.parse(JSON.stringify(localStorage.getItem('Email'))),
-  //   Category: '',
-  //   Content: '',
-  //   Image: '',
-  //   stat: '0',
-  // };
+  categorysub = false;
+  category = {
+    Title: '',
+    Image: '',
+  };
 
   constructor(
     private fb: FormBuilder,
@@ -33,53 +27,40 @@ export class MyPostsEditDialogComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private toaster: ToastrService,
     private categoryService: ContentServiceService,
-    @Inject(MAT_DIALOG_DATA) public PostData: any,
-    private diologRef: MatDialogRef<MyPostsEditDialogComponent>
+    @Inject(MAT_DIALOG_DATA) public CategoryData: any,
+    private diologRef: MatDialogRef<CategoryEditDialogComponent>
   ) {}
 
-  ngOnInit(): void {
-    this.categoryService.getCategorieslist().subscribe((res: any) => {
-      console.log(res);
-      if (res.success) {
-        console.log(res.message);
-        this.categories = JSON.parse(JSON.stringify(res.data));
-      } else {
-        alert(res.message);
-      }
-    });
-  }
-
-  postform = this.fb.group({
-    category: ['', [Validators.required]],
-    content: ['', [Validators.required]],
-    postimage: [''],
-  });
+  ngOnInit(): void {}
 
   // selectFile(event: any) {
-  //   this.post.Image = event.target.files[0];
-  //   this.url = '';
-  //   this.post.stat = '0';
+  //   this.category.Image = event.target.files[0];
   //   if (event.target.files) {
   //     var reader = new FileReader();
   //     reader.readAsDataURL(<File>event.target.files[0]);
   //     reader.onload = (event: any) => {
   //       this.url = event.target.result;
-  //       this.post.stat = '1';
   //     };
   //   }
   // }
 
-  get AllControlsForPost() {
-    return this.postform.controls;
+  categoryform = this.fb.group({
+    category: ['', [Validators.required]],
+    // categoryimage: ['', [Validators.required]],
+  });
+
+  get AllControlsForCategory() {
+    return this.categoryform.controls;
   }
 
-  addPost() {
-    if (this.postform.invalid) {
-      this.postsub = true;
+  editCategory() {
+    if (this.categoryform.invalid) {
+      this.categorysub = true;
       return;
     } else {
-      this.postsub = true;
-      this.categoryService.editPost(this.PostData).subscribe((res) => {
+      this.categorysub = true;
+
+      this.categoryService.categoryEdit(this.CategoryData).subscribe((res) => {
         console.log(res);
         if (res.success) {
           this.toaster.success(res.message, 'Success', { timeOut: 2000 });

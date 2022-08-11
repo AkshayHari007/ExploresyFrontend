@@ -56,11 +56,11 @@
         </button>
 
         <mat-error
-          *ngIf="AllControlsForLogin?.password?.errors?.['minlength']&&loginSubmitted"
+          *ngIf="AllControlsForLogin?.password?.errors?.['minlength']&&loginSubmitted||AllControlsForLogin['password']?.touched"
           >Password length should be minimum 8</mat-error
         >
         <mat-error
-          *ngIf="AllControlsForLogin?.password?.errors?.['required']&&loginSubmitted||AllControlsForLogin['password']?.touched"
+          *ngIf="AllControlsForLogin?.password?.errors?.['required']&&loginSubmitted"
         >
           Password required
         </mat-error>

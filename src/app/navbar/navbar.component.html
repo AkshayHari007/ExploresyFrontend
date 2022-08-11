@@ -27,9 +27,9 @@
     {{ FirstName }} {{ LastName }} <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item (click)="editProfile()">
       <mat-icon>face</mat-icon>
-      <span>User</span>
+      <span>Profie Edit</span>
     </button>
     <mat-divider></mat-divider>
     <button mat-menu-item (click)="logoutUser()">

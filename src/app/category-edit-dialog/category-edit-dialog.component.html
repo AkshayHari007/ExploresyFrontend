@@ -1,0 +1,67 @@
+<div class="container justify-content-center">
+  <h1
+    mat-dialog-title
+    style="text-align: center; font-family: 'Abril Fatface', serif"
+  >
+    Edit Category
+  </h1>
+  <div mat-dialog-content>
+    <form [formGroup]="categoryform">
+      <mat-form-field appearance="outline">
+        <mat-label>Category Name</mat-label>
+        <input
+          matInput
+          placeholder="Category Name"
+          formControlName="category"
+          [(ngModel)]="CategoryData.Title"
+        />
+        <mat-icon matSuffix>category</mat-icon>
+
+        <mat-error
+          *ngIf="AllControlsForCategory?.category?.errors?.['required']&&categorysub||AllControlsForCategory['category']?.touched"
+        >
+          Category Name required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <div class="mb-3">
+        <input
+          type="file"
+          class="form-control form-control-lg"
+          aria-label="file example"
+          formControlName="categoryimage"
+          accept="image/*"
+          [class.is-invalid]="
+            AllControlsForCategory['category'].touched  && AllControlsForCategory.categoryimage.errors?.['required']"
+          [class.is-valid]="
+          !AllControlsForCategory.categoryimage.errors?.['required']"
+          (change)="selectFile($event)"
+        />
+        <mat-error
+          style="font-size: 10px; margin-left: 11px; margin-top: 3px"
+          *ngIf="AllControlsForCategory['category']?.touched && AllControlsForCategory?.categoryimage?.errors?.['required']"
+        >
+          Category Image required
+        </mat-error>
+      </div> -->
+
+      <!-- <img
+        [src]="url"
+        *ngIf="!AllControlsForCategory?.categoryimage?.errors?.['required']"
+        alt="Browse a Category Image"
+      /> -->
+    </form>
+  </div>
+  <div mat-dialog-actions [align]="'center'">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="editCategory()"
+      style="width: 20%"
+    >
+      Edit
+    </button>
+    <button mat-raised-button color="warn" (click)="closeEdit()">Cancel</button>
+  </div>
+</div>
+

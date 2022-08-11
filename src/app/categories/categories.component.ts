@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CategoryDeleteDialogComponent } from '../category-delete-dialog/category-delete-dialog.component';
 import { CategoryDialogComponent } from '../category-dialog/category-dialog.component';
+import { CategoryEditDialogComponent } from '../category-edit-dialog/category-edit-dialog.component';
 import { ContentServiceService } from '../services/content-service.service';
 import { UserServiceService } from '../services/user-service.service';
 
@@ -48,5 +50,19 @@ export class CategoriesComponent implements OnInit {
   routeCategory(category: any) {
     localStorage.setItem('category', category);
     this.router.navigate(['category']);
+  }
+
+  openEdit(category: any) {
+    this.dialog.open(CategoryEditDialogComponent, {
+      width: '30%',
+      data: category,
+    });
+  }
+
+  openDelete(category: any) {
+    this.dialog.open(CategoryDeleteDialogComponent, {
+      width: '30%',
+      data: category,
+    });
   }
 }

@@ -15,6 +15,20 @@ export class ContentServiceService {
     // })
   }
 
+  categoryEdit(data: any) {
+    return this.http.post<any>(`${baseurl}category/editpost`, data);
+    // .subscribe(data => {
+    //   console.log(data);
+    // })
+  }
+
+  categoryDelete(id: any) {
+    return this.http.delete(`${baseurl}category/delete/` + id);
+    // .subscribe(data => {
+    //   console.log(data);
+    // })
+  }
+
   getCategories() {
     return this.http.get(`${baseurl}category/fetch`);
   }
