@@ -1,4 +1,15 @@
 <div class="container">
+  <h1
+    style="
+      text-align: center;
+      font-family: 'Abril Fatface', serif;
+      font-size: 65px;
+      margin-top: 35px;
+      margin-bottom: 35px;
+    "
+  >
+    {{ req.category }}
+  </h1>
   <mat-card class="example-card" *ngFor="let post of posts">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image">
@@ -19,7 +30,7 @@
     />
     <mat-card-content>
       <!-- <div [ngClass]="{ limitTextHeight: isReadMore }"> -->
-      <p><b>Category :</b> {{ post.Category }}</p>
+      <!-- <p><b>Category :</b> {{ post.Category }}</p> -->
       <p style="text-align: justify">
         {{ post.Content }}
       </p>

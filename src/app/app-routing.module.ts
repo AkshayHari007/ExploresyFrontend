@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { CategoryContentComponent } from './category-content/category-content.component';
 import { EditorsComponent } from './editors/editors.component';
 import { AdminAuthGuard } from './guards/admin-auth.guard';
 import { AuthGuard } from './guards/auth.guard';
@@ -22,6 +23,7 @@ const routes: Routes = [
   },
   { path: 'authors', canActivate: [EditorAuthGuard], component: UserComponent },
   { path: 'categories', component: CategoriesComponent },
+  { path: 'category', component: CategoryContentComponent },
   { path: 'myposts', canActivate: [AuthGuard], component: MyPostsComponent },
 ];
 

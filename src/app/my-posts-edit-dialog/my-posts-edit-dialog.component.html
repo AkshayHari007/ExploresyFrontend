@@ -3,7 +3,7 @@
     mat-dialog-title
     style="text-align: center; font-family: 'Abril Fatface', serif"
   >
-    Post Your Ideas💡
+    Edit Your Ideas💡
   </h1>
   <div mat-dialog-content>
     <form [formGroup]="postform">
@@ -11,7 +11,7 @@
         <div class="col-sm-12">
           <mat-form-field appearance="outline">
             <mat-label>Select the Content Category</mat-label>
-            <mat-select formControlName="category" [(ngModel)]="post.Category">
+            <mat-select formControlName="category" [(ngModel)]="PostData.Category">
               <mat-option
                 *ngFor="let category of categories"
                 [value]="category.Title"
@@ -32,7 +32,7 @@
               matInput
               placeholder="What's in your mind?"
               formControlName="content"
-              [(ngModel)]="post.Content"
+              [(ngModel)]="PostData.Content"
             >
             </textarea>
 
@@ -43,7 +43,7 @@
             </mat-error>
           </mat-form-field>
 
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <input
               type="file"
               class="form-control form-control-lg"
@@ -55,18 +55,19 @@
             />
             <mat-hint style="font-size: 10px; margin-top: 3px; float: right"
               >Browse to upload an image (if required).</mat-hint
-            >
+            > -->
             <!-- <mat-error
               style="font-size: 10px; margin-left: 11px; margin-top: 3px"
               *ngIf="AllControlsForPost['postimage']?.touched && AllControlsForPost?.postimage?.errors?.['required']"
             >
               Category Image required
             </mat-error> -->
-          </div>
+          <!-- </div> -->
         </div>
-        <div class="col-sm-12">
+        <!-- <div class="col-sm-12">
           <img [src]="url" *ngIf="url != ''" alt="Browse a Category Image" />
-        </div>
+          <img src="../../assets/images/{{PostData.Image}}" *ngIf="PostData.Image != ''" alt="Browse a Category Image" />
+        </div> -->
       </div>
     </form>
   </div>
@@ -77,8 +78,9 @@
       (click)="addPost()"
       style="width: 75px"
     >
-      Add
+      Edit
     </button>
-    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="warn" (click)="closePost()">Cancel</button>
   </div>
 </div>
+

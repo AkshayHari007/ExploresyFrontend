@@ -2,19 +2,18 @@
   <div class="container-lg">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gy-4">
       <div class="col cat-icon" *ngFor="let category of categories">
-        <a class="card-text" routerLink="#">
+        <a class="card-text" (click)="routeCategory(category.Title)">
           <img src="../../assets/images/{{ category.Image }}" />
           <br />
           {{ category.Title }}
         </a>
-        <br />
-        <br />
 
         <div
           mat-dialog-actions
           [align]="'center'"
           class="justify-content-center"
           *ngIf="user.editorLogin() || user.adminLogin()"
+          style="margin-top: 5px;"
         >
           <button
             mat-raised-button

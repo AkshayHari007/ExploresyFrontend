@@ -8,23 +8,23 @@ import { ToastrService } from 'ngx-toastr';
 import { ContentServiceService } from '../services/content-service.service';
 
 @Component({
-  selector: 'app-my-posts-dialog',
-  templateUrl: './my-posts-dialog.component.html',
-  styleUrls: ['./my-posts-dialog.component.scss'],
+  selector: 'app-my-posts-edit-dialog',
+  templateUrl: './my-posts-edit-dialog.component.html',
+  styleUrls: ['./my-posts-edit-dialog.component.scss'],
 })
-export class MyPostsDialogComponent implements OnInit {
+export class MyPostsEditDialogComponent implements OnInit {
   url = '';
   categories = [{ Title: '' }];
   postsub = false;
-  post = {
-    FirstName: JSON.parse(JSON.stringify(localStorage.getItem('FirstName'))),
-    LastName: JSON.parse(JSON.stringify(localStorage.getItem('LastName'))),
-    Email: JSON.parse(JSON.stringify(localStorage.getItem('Email'))),
-    Category: '',
-    Content: '',
-    Image: '',
-    stat: '0',
-  };
+  // post = {
+  //   FirstName: JSON.parse(JSON.stringify(localStorage.getItem('FirstName'))),
+  //   LastName: JSON.parse(JSON.stringify(localStorage.getItem('LastName'))),
+  //   Email: JSON.parse(JSON.stringify(localStorage.getItem('Email'))),
+  //   Category: '',
+  //   Content: '',
+  //   Image: '',
+  //   stat: '0',
+  // };
 
   constructor(
     private fb: FormBuilder,
@@ -33,8 +33,8 @@ export class MyPostsDialogComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private toaster: ToastrService,
     private categoryService: ContentServiceService,
-    @Inject(MAT_DIALOG_DATA) public UserData: any,
-    private diologRef: MatDialogRef<MyPostsDialogComponent>
+    @Inject(MAT_DIALOG_DATA) public PostData: any,
+    private diologRef: MatDialogRef<MyPostsEditDialogComponent>
   ) {}
 
   ngOnInit(): void {
@@ -55,19 +55,19 @@ export class MyPostsDialogComponent implements OnInit {
     postimage: [''],
   });
 
-  selectFile(event: any) {
-    this.post.Image = event.target.files[0];
-    this.url = '';
-    this.post.stat = '0';
-    if (event.target.files) {
-      var reader = new FileReader();
-      reader.readAsDataURL(<File>event.target.files[0]);
-      reader.onload = (event: any) => {
-        this.url = event.target.result;
-        this.post.stat = '1';
-      };
-    }
-  }
+  // selectFile(event: any) {
+  //   this.post.Image = event.target.files[0];
+  //   this.url = '';
+  //   this.post.stat = '0';
+  //   if (event.target.files) {
+  //     var reader = new FileReader();
+  //     reader.readAsDataURL(<File>event.target.files[0]);
+  //     reader.onload = (event: any) => {
+  //       this.url = event.target.result;
+  //       this.post.stat = '1';
+  //     };
+  //   }
+  // }
 
   get AllControlsForPost() {
     return this.postform.controls;
@@ -79,17 +79,7 @@ export class MyPostsDialogComponent implements OnInit {
       return;
     } else {
       this.postsub = true;
-      const formdata = new FormData();
-      formdata.append('FirstName', this.post.FirstName);
-      formdata.append('LastName', this.post.LastName);
-      formdata.append('Email', this.post.Email);
-      formdata.append('Category', this.post.Category);
-      formdata.append('Content', this.post.Content);
-      formdata.append('Image', this.post.Image);
-      formdata.append('Stat', this.post.stat);
-
-
-      this.categoryService.addPost(formdata).subscribe((res) => {
+      this.categoryService.editPost(this.PostData).subscribe((res) => {
         console.log(res);
         if (res.success) {
           this.toaster.success(res.message, 'Success', { timeOut: 2000 });
@@ -121,5 +111,16 @@ export class MyPostsDialogComponent implements OnInit {
     // alert(
     //   `Successfully Updated ${this.UserData.FirstName} ${this.UserData.LastName} 😊`
     // );
+  }
+  closePost() {
+    this.diologRef.close();
+
+    // ! to reload without loading
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParamsHandling: 'merge',
+    });
   }
 }

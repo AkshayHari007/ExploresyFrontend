@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ContentServiceService } from '../services/content-service.service';
 import { MyPostsDialogComponent } from '../my-posts-dialog/my-posts-dialog.component';
+import { MyPostsEditDialogComponent } from '../my-posts-edit-dialog/my-posts-edit-dialog.component';
+import { MyPostsDeleteDialogComponent } from '../my-posts-delete-dialog/my-posts-delete-dialog.component';
 
 @Component({
   selector: 'app-my-posts',
@@ -39,6 +41,20 @@ export class MyPostsComponent implements OnInit {
   addPost() {
     this.dialog.open(MyPostsDialogComponent, {
       width: 'auto',
+    });
+  }
+
+  openEdit(post: any) {
+    this.dialog.open(MyPostsEditDialogComponent, {
+      width: 'auto',
+      data: post,
+    });
+  }
+
+  openDelete(post: any) {
+    this.dialog.open(MyPostsDeleteDialogComponent, {
+      width: '30%',
+      data: post,
     });
   }
 }

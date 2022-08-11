@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('FirstName');
     localStorage.removeItem('LastName');
     localStorage.removeItem('Email');
+    localStorage.removeItem('category');
     this.router.navigate(['/register']);
   }
 }

@@ -29,6 +29,9 @@ import { CategoryDialogComponent } from './category-dialog/category-dialog.compo
 import { ContentServiceService } from './services/content-service.service';
 import { MyPostsComponent } from './my-posts/my-posts.component';
 import { MyPostsDialogComponent } from './my-posts-dialog/my-posts-dialog.component';
+import { CategoryContentComponent } from './category-content/category-content.component';
+import { MyPostsEditDialogComponent } from './my-posts-edit-dialog/my-posts-edit-dialog.component';
+import { MyPostsDeleteDialogComponent } from './my-posts-delete-dialog/my-posts-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -48,12 +51,17 @@ import { MyPostsDialogComponent } from './my-posts-dialog/my-posts-dialog.compon
     CategoryDialogComponent,
     MyPostsComponent,
     MyPostsDialogComponent,
+    CategoryContentComponent,
+    MyPostsEditDialogComponent,
+    MyPostsDeleteDialogComponent,
   ],
   entryComponents: [
     UserDialogComponent,
     UserdeleteDialogComponent,
     CategoryDialogComponent,
-    MyPostsDialogComponent
+    MyPostsDialogComponent,
+    MyPostsEditDialogComponent,
+    MyPostsDeleteDialogComponent,
   ],
   imports: [
     BrowserModule,

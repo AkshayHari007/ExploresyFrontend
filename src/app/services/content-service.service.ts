@@ -23,6 +23,10 @@ export class ContentServiceService {
     return this.http.get(`${baseurl}category/fetchlist`);
   }
 
+  getCategory(data: any) {
+    return this.http.post<any>(`${baseurl}post/fetchcategory`, data);
+  }
+
   addPost(data: any) {
     return this.http.post<any>(`${baseurl}post/addpost`, data);
     // .subscribe(data => {
@@ -35,6 +39,20 @@ export class ContentServiceService {
   }
 
   getmyPost(data: any) {
-    return this.http.post<any>(`${baseurl}post/fetchmypost`,data);
+    return this.http.post<any>(`${baseurl}post/fetchmypost`, data);
+  }
+
+  editPost(data: any) {
+    return this.http.post<any>(`${baseurl}post/editpost`, data);
+    // .subscribe(data => {
+    //   console.log(data);
+    // })
+  }
+
+  postDelete(id: any) {
+    return this.http.delete(`${baseurl}post/delete/` + id);
+    // .subscribe(data => {
+    //   console.log(data);
+    // })
   }
 }
